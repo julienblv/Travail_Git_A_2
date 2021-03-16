@@ -29,4 +29,22 @@ public class Modele {
 	{
 		this.nombre2 = nombre2;
 	}
+	
+	public double addition()
+	{
+		return nombre1 + nombre2;
+	}
+	
+	public double soustraction()
+	{
+		return nombre1 - nombre2;
+	}
+	
+	public double multiplication(){
+		return nombre1 * nombre2;
+	}
+	
+	public double division() {
+		return nombre1 / nombre2;
+	}
 }
