@@ -4,6 +4,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SpringLayout;
 
 public class Vue 
 {
@@ -70,13 +71,25 @@ public class Vue
 		panelOperateur.add(division);
 		panelOperateur.add(resultat);
 		
-		calculette.add(panelNum);
+		//calculette.add(panelOperateur);
 		
-		/*SpringLayout springLayout = new SpringLayout();  
-		calculette.setLayout(springLayout); 
-
-		springLayout.putConstraint(SpringLayout.NORTH, panelNum, 30,SpringLayout.SOUTH, pnl);*/
+		SpringLayout springLayout = new SpringLayout();  
+		panelNum.setLayout(springLayout); 
 		
+		//----------------Layout JpanelNum-------------------------------------------
+		springLayout.putConstraint(SpringLayout.WEST, btn2, 10,SpringLayout.EAST, btn1);
+		springLayout.putConstraint(SpringLayout.WEST, btn3, 10,SpringLayout.EAST, btn2);
+		springLayout.putConstraint(SpringLayout.NORTH, btn4, 10,SpringLayout.SOUTH, btn1);
+		springLayout.putConstraint(SpringLayout.WEST, btn5, 10,SpringLayout.EAST, btn4);
+		springLayout.putConstraint(SpringLayout.NORTH, btn5, 10,SpringLayout.SOUTH, btn2);
+		springLayout.putConstraint(SpringLayout.WEST, btn6, 10,SpringLayout.EAST, btn5);
+		springLayout.putConstraint(SpringLayout.NORTH, btn6, 10,SpringLayout.SOUTH, btn3);
+		springLayout.putConstraint(SpringLayout.NORTH, btn7, 10,SpringLayout.SOUTH, btn5);
+		springLayout.putConstraint(SpringLayout.WEST, btn8, 10,SpringLayout.EAST, btn7);
+		springLayout.putConstraint(SpringLayout.NORTH, btn8, 10,SpringLayout.SOUTH, btn5);
+		springLayout.putConstraint(SpringLayout.WEST, btn9, 10,SpringLayout.EAST, btn8);
+		springLayout.putConstraint(SpringLayout.NORTH, btn9, 10,SpringLayout.SOUTH, btn6);
+		springLayout.putConstraint(SpringLayout.NORTH, btn0, 10,SpringLayout.SOUTH, btn9);
 		
 		calculette.setVisible(true);
 	}
