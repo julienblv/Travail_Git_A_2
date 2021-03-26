@@ -1,11 +1,15 @@
 package calc;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
-public class Controlleur {
+public class Controlleur implements ActionListener, KeyListener
+ {
 	
 	Modele modele = new Modele();
 	JTextField champDeSaisie;
@@ -143,5 +147,30 @@ public class Controlleur {
 			
 			
 		}
+	}
+
+	@Override
+	public void keyPressed(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent ke) {
+		System.out.println("keyTyped KE: " + ke);
+		Object sourceE = ke.getSource();
+		if (sourceE instanceof JTextField)
+		{
+			// on récupère la valeur du txt
+			JTextField champ_click = (JTextField) sourceE;
+			
+		}
+		
 	}
 }
