@@ -14,6 +14,7 @@ public class Vue
 {
 	private Modele modele;
 	private Controlleur controleur;
+	
 	JPanel pnl ;
 	JPanel panelNum ;
 	JPanel panelOperateur;
@@ -123,7 +124,8 @@ public class Vue
 		springLayout.putConstraint(SpringLayout.NORTH,panelOperateur ,0,SpringLayout.SOUTH, pnl);
 		springLayout.putConstraint(SpringLayout.WEST,panelOperateur ,0,SpringLayout.EAST, panelNum);
 		
-		controleur = new Controlleur(champDeSaisie);
+		controleur = new Controlleur(modele,champDeSaisie);
+		
 		btn1.addActionListener(controleur);
 		btn2.addActionListener(controleur);
 		btn3.addActionListener(controleur);
