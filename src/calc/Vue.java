@@ -9,12 +9,13 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+
 public class Vue 
 {
 	Modele modele;
-	JPanel pnl =new JPanel();
-	JPanel panelNum =new JPanel();
-	JPanel panelOperateur =new JPanel();
+	JPanel pnl ;
+	JPanel panelNum ;
+	JPanel panelOperateur;
 
 	JTextField champDeSaisie;
 
@@ -37,6 +38,16 @@ public class Vue
 
 	Vue(Modele _modele){
 		modele = _modele;
+		
+		//--------------JFrame-----------------------------------
+		JFrame calculette = new JFrame();
+		calculette.setTitle("Calculette");
+		calculette.setSize(510,150);
+		calculette.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		//--------Determination du laout de la Frame---------------
+		SpringLayout springLayout = new SpringLayout();  
+		calculette.setLayout(springLayout);
 
 		btn1 = new JButton("1");
 		btn2 = new JButton("2");
@@ -54,10 +65,70 @@ public class Vue
 		division = new JButton("/");
 		multiplication = new JButton("*");
 		resultat = new JButton("=");
+
+		//--------1er Panel: JTextField --------------
+		pnl =new JPanel();
+		pnl.setOpaque(true);
+		pnl.setBackground(Color.pink);
+		pnl.setPreferredSize(new Dimension(500, 30));
+		
+		//Ajout du JTextfield au panel
+		champDeSaisie = new JTextField(30);
+		champDeSaisie.setColumns(35); 
+		pnl.add(champDeSaisie);
+		
+		//Ajout du panel à la Frame
+		calculette.add(pnl);
+
+		//--------2eme Panel: Panel de chiffres--------------
+		panelNum =new JPanel();
+		panelNum.setOpaque(true);
+		panelNum.setPreferredSize(new Dimension(250, 100));
+		panelNum.setBackground(Color.YELLOW);
+		
+		//Ajout des boutons au panel
+		panelNum.add(btn1);
+		panelNum.add(btn2);
+		panelNum.add(btn3);
+		panelNum.add(btn4);
+		panelNum.add(btn5);
+		panelNum.add(btn6);
+		panelNum.add(btn7);
+		panelNum.add(btn8);
+		panelNum.add(btn9);
+		panelNum.add(btn0);
+		
+		//Ajout du panel à la Frame
+		calculette.add(panelNum);
+
+		//--------3eme Panel: Panel des Opérateurs--------------
+		panelOperateur =new JPanel();
+		panelOperateur.setOpaque(true);
+		panelOperateur.setBackground(Color.green);
+		panelOperateur.setPreferredSize(new Dimension(250, 100));
+		
+		//Ajout des boutons au panel
+		panelOperateur.add(addition);
+		panelOperateur.add(soustraction);
+		panelOperateur.add(multiplication);
+		panelOperateur.add(division);
+		panelOperateur.add(resultat);
+		
+		//Ajout du panel à la Frame
+		calculette.add(panelOperateur);
+
+		//definition des Layout
+		springLayout.putConstraint(SpringLayout.NORTH,panelNum ,0,SpringLayout.SOUTH, pnl);
+		springLayout.putConstraint(SpringLayout.NORTH,panelOperateur ,0,SpringLayout.SOUTH, pnl);
+		springLayout.putConstraint(SpringLayout.WEST,panelOperateur ,0,SpringLayout.EAST, panelNum);
+		
+		// on rend visible la Frame
+		calculette.setVisible(true);
 	}
 	public static void main(String[] args)
 	{
-
+		Modele modele = new Modele();
+		Vue calc = new Vue(modele);
 	}
 
 }
